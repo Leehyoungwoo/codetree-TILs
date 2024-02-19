@@ -10,11 +10,29 @@ public class Main {
     private static int k;
     private static int[] nums;
     private static int[] preSum;
+    private static int answer = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         init();
-        Arrays.sort(preSum);
-        System.out.println(preSum[n - 1]);
+        findPrefixSum();
+        findAnswer();
+        System.out.println(answer);
+    }
+
+    private static void findAnswer() {
+        for (int i = 1; i <= n - k + 1; i++) {
+            answer = Math.max(answer, getSum(i, i + k - 1));
+        }
+    }
+
+    private static int getSum(int i, int i1) {
+        return preSum[i1] - preSum[i - 1];
+    }
+
+    private static void findPrefixSum() {
+        for (int i = 1; i <= n; i++) {
+            preSum[i] = preSum[i - 1] + nums[i];
+        }
     }
 
     private static void init() throws IOException {
@@ -23,18 +41,12 @@ public class Main {
         n = Integer.parseInt(tokenizer.nextToken());
         k = Integer.parseInt(tokenizer.nextToken());
 
-        nums = new int[n];
-        preSum = new int[n];
+        preSum = new int[n + 1];
+        nums = new int[n + 1];
         tokenizer = new StringTokenizer(input.readLine());
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             int num = Integer.parseInt(tokenizer.nextToken());
-            nums[i] += num;
-            for (int j = k - 1; j >= 0; j--) {
-                if (i - j < 0) {
-                    continue;
-                }
-                preSum[i]+=nums[i - j];
-            }
+            nums[i] = num;
         }
     }
 }
