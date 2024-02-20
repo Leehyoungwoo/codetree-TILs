@@ -52,8 +52,19 @@ public class Main {
             int[] range = que.poll();
             int start = map.ceilingKey(range[0]);
             int end = map.floorKey(range[1]);
-            Integer large = map.floorEntry(end).getValue();
-            Integer small = map.ceilingEntry(start).getValue();
+            Map.Entry<Integer, Integer> largeEntry = map.floorEntry(end);
+            Map.Entry<Integer, Integer> smallEntry = map.ceilingEntry(start);
+            Integer large;
+            Integer small;
+
+            if (largeEntry == null || smallEntry == null) {
+                large = 0;
+                small = 0;
+            } else {
+                large = largeEntry.getValue();
+                small = smallEntry.getValue();
+            }
+
             System.out.println(large - small + 1);
         }
     }
