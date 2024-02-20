@@ -60,12 +60,13 @@ public class Main {
             if (largeEntry == null || smallEntry == null) {
                 large = 0;
                 small = 0;
+                System.out.println(0);
             } else {
                 large = largeEntry.getValue();
                 small = smallEntry.getValue();
+                System.out.println(large - small + 1);
             }
 
-            System.out.println(large - small + 1);
         }
     }
 }
