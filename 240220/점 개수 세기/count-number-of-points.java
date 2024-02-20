@@ -50,8 +50,8 @@ public class Main {
 
         while (!que.isEmpty()) {
             int[] range = que.poll();
-            int start = map.ceilingKey(range[0]);
-            int end = map.floorKey(range[1]);
+            int start = range[0];
+            int end = range[1];
             Map.Entry<Integer, Integer> largeEntry = map.floorEntry(end);
             Map.Entry<Integer, Integer> smallEntry = map.ceilingEntry(start);
             Integer large;
