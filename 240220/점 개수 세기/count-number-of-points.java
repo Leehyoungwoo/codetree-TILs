@@ -52,7 +52,9 @@ public class Main {
             int[] range = que.poll();
             int start = map.ceilingKey(range[0]);
             int end = map.floorKey(range[1]);
-            System.out.println(map.get(end) - map.get(start) + 1);
+            Integer large = map.floorEntry(end).getValue();
+            Integer small = map.ceilingEntry(start).getValue();
+            System.out.println(large - small + 1);
         }
     }
 }
