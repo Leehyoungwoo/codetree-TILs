@@ -28,6 +28,7 @@ public class Main {
     private static int findAnswer(int left, int right) {
         int first = 0;
         int last = 0;
+
         if (right < map.firstKey()) {
             return 0;
         }
@@ -37,8 +38,14 @@ public class Main {
         }
 
         first = map.ceilingEntry(left).getValue();
-        last = map.floorEntry(right).getValue();
-        return last - first + 1;
+
+        if (right > map.lastKey()) {
+            last = map.lastEntry().getValue();
+        } else {
+            last = map.floorEntry(right).getValue();
+        }
+
+        return (last - first + 1);
     }
 
     private static void init() throws IOException {
