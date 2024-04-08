@@ -26,8 +26,8 @@ public class Main {
     }
 
     private static int findAnswer(int left, int right) {
-        int first = 0;
-        int last = 0;
+        int first = Integer.MAX_VALUE;
+        int last = Integer.MIN_VALUE;
 
         if (right < map.firstKey()) {
             return 0;
@@ -37,12 +37,16 @@ public class Main {
             return 0;
         }
 
-        first = map.ceilingEntry(left).getValue();
+        if (map.ceilingEntry(left) != null) {
+            first = map.ceilingEntry(left).getValue();
+        }
 
-        if (right > map.lastKey()) {
-            last = map.lastEntry().getValue();
-        } else {
+        if (map.floorEntry(right) != null) {
             last = map.floorEntry(right).getValue();
+        }
+
+        if (first == Integer.MAX_VALUE || last == Integer.MIN_VALUE) {
+            return 0;
         }
 
         return (last - first + 1);
