@@ -27,20 +27,21 @@ public class Main {
     private static int findAnswer(int target) {
         int left = 0;
         int right = arr.length - 1;
+        int midIdx = n;
         while (left <= right) {
             int mid = (left + right) / 2;
             if (arr[mid] >= target) {
                 right = mid - 1;
+                midIdx = Math.min(midIdx, mid);
             } else {
                 left = mid + 1;
             }
         }
-
-        if (arr[left] != target) {
+        if(arr[midIdx] != target) {
             return -1;
         }
 
-        return left + 1;
+        return midIdx + 1;
     }
 
     private static void init() throws IOException {
