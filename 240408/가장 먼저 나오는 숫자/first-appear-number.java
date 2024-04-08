@@ -37,7 +37,7 @@ public class Main {
                 left = mid + 1;
             }
         }
-        if(arr[midIdx] != target) {
+        if(midIdx >= arr.length ||arr[midIdx] != target) {
             return -1;
         }
 
