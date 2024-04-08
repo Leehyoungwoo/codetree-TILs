@@ -36,6 +36,10 @@ public class Main {
             return 0;
         }
 
+        if (left == right && map.contains(left)) {
+            return 1;
+        }
+
 
         first = map.ceilingEntry(left).getValue();
         last = map.floorEntry(right).getValue();
