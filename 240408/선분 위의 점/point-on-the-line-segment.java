@@ -47,9 +47,14 @@ public class Main {
         StringTokenizer tokenizer = new StringTokenizer(input.readLine());
         n = Integer.parseInt(tokenizer.nextToken());
         m = Integer.parseInt(tokenizer.nextToken());
+        int[] arr = new int[n];
         tokenizer = new StringTokenizer(input.readLine());
         for (int i = 0; i < n; i++) {
-            map.put(Integer.parseInt(tokenizer.nextToken()), i);
+            arr[i] = Integer.parseInt(tokenizer.nextToken());
+        }
+        Arrays.sort(arr);
+        for (int i = 0; i < n; i++) {
+            map.put(arr[i], i);
         }
         for (int i = 0; i < m; i++) {
             tokenizer = new StringTokenizer(input.readLine());
