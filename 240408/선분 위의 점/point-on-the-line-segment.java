@@ -32,9 +32,14 @@ public class Main {
         n = sc.nextInt();
         m = sc.nextInt();
 
-        // 점의 좌표를 TreeMap에 저장
+        // 점의 좌표를 배열에 저장
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
+        }
+
+        // 좌표를 정렬하고, TreeMap에 저장
+        Arrays.sort(arr, 0, n);
+        for (int i = 0; i < n; i++) {
             map.put(arr[i], i);
         }
 
