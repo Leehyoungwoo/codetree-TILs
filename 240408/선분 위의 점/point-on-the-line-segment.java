@@ -1,5 +1,5 @@
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
+
 
 public class Main {
     public static final int MAX_N = 100000;
@@ -32,11 +32,16 @@ public class Main {
         n = sc.nextInt();
         m = sc.nextInt();
 
+        int[] arr = new int[n];
         // 점의 좌표를 TreeMap에 저장
         for (int i = 0; i < n; i++) {
-            int num = sc.nextInt();
-            map.put(num, i);
+            arr[i] = sc.nextInt();
         }
+        Arrays.sort(arr);
+        for (int i = 0; i < n; i++) {
+            map.put(arr[i], i);
+        }
+
 
         // m개의 질의에 대한 답을 계산합니다.
         for (int i = 0; i < m; i++) {
