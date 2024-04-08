@@ -28,7 +28,15 @@ public class Main {
     private static int findAnswer(int left, int right) {
         int first = 0;
         int last = 0;
-        
+
+        if (right < map.firstKey()) {
+            return 0;
+        }
+
+        if (left > map.lastKey()) {
+            return 0;
+        }
+
         if (map.ceilingEntry(left) != null) {
             first = map.ceilingEntry(left).getValue();
         } else {
