@@ -62,7 +62,7 @@ public class Main {
             // b보다 큰 최초의 숫자 위치에서
             // a보다 같거나 큰 최초의 숫자 위치를 빼면
             // 문제에서 원하는 답이 됩니다.
-            int count = upperBound(b) - upperBound(a);
+            int count = upperBound(b) - lowerBound(a);
             System.out.println(count);
         }
     }
