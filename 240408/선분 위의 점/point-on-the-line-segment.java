@@ -36,15 +36,8 @@ public class Main {
             return 0;
         }
 
-        
-
-
-
         first = map.ceilingEntry(left).getValue();
         last = map.floorEntry(right).getValue();
-        if (first == last && map.containsKey(left) || map.containsKey(right)) {
-            return 1;
-        } 
         return last - first + 1;
     }
 
