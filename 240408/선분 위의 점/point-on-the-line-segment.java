@@ -5,6 +5,7 @@ public class Main {
 
     public static int n, m;
     public static TreeMap<Integer, Integer> map = new TreeMap<>();
+    public static int[] arr = new int[MAX_N];
 
     // target보다 크거나 같은 최초의 위치의 인덱스를 반환합니다.
     public static int lowerBound(int target) {
@@ -31,13 +32,9 @@ public class Main {
         n = sc.nextInt();
         m = sc.nextInt();
 
-        int[] arr = new int[n];
         // 점의 좌표를 TreeMap에 저장
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
-        }
-        Arrays.sort(arr);
-        for (int i = 0; i < n; i++) {
             map.put(arr[i], i);
         }
 
