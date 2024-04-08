@@ -36,7 +36,7 @@ public class Main {
             return 0;
         }
 
-        if (left == right && map.contains(left)) {
+        if (left == right && map.containsKey(left)) {
             return 1;
         }
 
